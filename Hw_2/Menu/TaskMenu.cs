@@ -19,7 +19,8 @@ namespace Hw_2.Menu
 			Console.WriteLine("1 - Чтение");
 			Console.WriteLine("2 - Запись");
 			Console.WriteLine("3 - Вывод числа фибоначи");
-			Console.WriteLine("4 - Выход");
+			Console.WriteLine("4 - Работа с базой данных");
+			Console.WriteLine("5 - Выход");
 			Console.ForegroundColor = ConsoleColor.White;
 		}
 		public void PrintExtraMenu()
@@ -52,7 +53,6 @@ namespace Hw_2.Menu
 			}
 			if(int.TryParse(Console.ReadLine(), out var number)){
 				{
-					//int.TryParse(Console.ReadLine(), out var number);
 					switch (number)
 					{
 						case 1:
