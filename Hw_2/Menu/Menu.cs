@@ -10,20 +10,12 @@ namespace Hw_2.Menu
 	internal class Menu
 	{
 		TaskMenu taskMenu = new();
-		public void PrintMainMenu()
-		{
-			Console.ForegroundColor = ConsoleColor.Yellow;
-			Console.WriteLine("1 - Чтение");
-			Console.WriteLine("2 - Запись");
-			Console.WriteLine("3 - Вывод числа фибоначи");
-			Console.WriteLine("4 - Выход");
-			Console.ForegroundColor = ConsoleColor.White;
-		}
+		DataBaseMenu dataBaseMenu = new DataBaseMenu();
 
 		public void Start()
 		{
 			while (true) {
-				PrintMainMenu();
+				taskMenu.PrintMainMenu();
 				if (uint.TryParse(Console.ReadLine(), out var num))
 				{
 					switch (num)
@@ -38,6 +30,9 @@ namespace Hw_2.Menu
 							taskMenu.FibonachiNumberMenu();
 							break;
 						case 4:
+							dataBaseMenu.DataBaseComandMenu();
+							break;
+						case 5:
 							Console.ForegroundColor = ConsoleColor.Yellow;
 							Console.WriteLine("Вы вышли!");
 							Environment.Exit(0);
