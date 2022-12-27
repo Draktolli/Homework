@@ -1,21 +1,19 @@
-﻿using System;
+﻿using Hw_2.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Linq;
-using Hw_2.DB;
 
 namespace Hw_2.Menu
 {
-	internal class DataBaseMenu
+	internal class DataBaseEntityMenu
 	{
-		DirectorProvider directorProvider = new();
-		SubMenus SubMenus = new();
-		
+		DirectorsCommands directorCommands = new();
+		SubMenus subMenus = new SubMenus();
 		public void DataBaseComandMenu()
 		{
-			SubMenus.PrintDataBaseMainMenu();
+			subMenus.PrintDataBaseMainMenu();
 			if (uint.TryParse(Console.ReadLine(), out var num))
 			{
 				switch (num)
@@ -62,8 +60,8 @@ namespace Hw_2.Menu
 				Console.ForegroundColor = ConsoleColor.White;
 				if (name != null && surname != null)
 				{
-					directorProvider.Create(name, surname);
-					SubMenus.PrintExtraMenu();
+					directorCommands.Create(name, surname);
+					subMenus.PrintExtraMenu();
 					break;
 				}
 				else
@@ -87,7 +85,7 @@ namespace Hw_2.Menu
 					default:
 						Console.ForegroundColor = ConsoleColor.Red;
 						Console.WriteLine("Введеное значение должно быть либо 1 либо 2");
-						SubMenus.PrintExtraMenu();
+						subMenus.PrintExtraMenu();
 						break;
 				}
 
@@ -95,8 +93,8 @@ namespace Hw_2.Menu
 		}
 		public void ReadMenu()
 		{
-			directorProvider.Read();
-			SubMenus.PrintExtraMenu();
+			directorCommands.Read();
+			subMenus.PrintExtraMenu();
 			if (int.TryParse(Console.ReadLine(), out var number))
 			{
 				switch (number)
@@ -110,7 +108,7 @@ namespace Hw_2.Menu
 					default:
 						Console.ForegroundColor = ConsoleColor.Red;
 						Console.WriteLine("Введеное значение должно быть либо 1 либо 2");
-						SubMenus.PrintExtraMenu();
+						subMenus.PrintExtraMenu();
 						break;
 				}
 
@@ -136,8 +134,8 @@ namespace Hw_2.Menu
 					Console.ForegroundColor = ConsoleColor.White;
 					if (name != null && surname != null)
 					{
-						directorProvider.Update(id, name, surname);
-						SubMenus.PrintExtraMenu();
+						directorCommands.Update(id, name, surname);
+						subMenus.PrintExtraMenu();
 						break;
 					}
 					else
@@ -169,7 +167,7 @@ namespace Hw_2.Menu
 					default:
 						Console.ForegroundColor = ConsoleColor.Red;
 						Console.WriteLine("Введеное значение должно быть либо 1 либо 2");
-						SubMenus.PrintExtraMenu();
+						subMenus.PrintExtraMenu();
 						break;
 				}
 
@@ -184,8 +182,8 @@ namespace Hw_2.Menu
 				if (Guid.TryParse(Console.ReadLine(), out Guid id))
 				{
 					Console.ForegroundColor = ConsoleColor.White;
-					directorProvider.Delete(id);
-					SubMenus.PrintExtraMenu();
+					directorCommands.Delete(id);
+					subMenus.PrintExtraMenu();
 					break;
 				}
 				else
@@ -209,7 +207,7 @@ namespace Hw_2.Menu
 					default:
 						Console.ForegroundColor = ConsoleColor.Red;
 						Console.WriteLine("Введеное значение должно быть либо 1 либо 2");
-						SubMenus.PrintExtraMenu();
+						subMenus.PrintExtraMenu();
 						break;
 				}
 

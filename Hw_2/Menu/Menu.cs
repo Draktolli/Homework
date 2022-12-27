@@ -10,12 +10,14 @@ namespace Hw_2.Menu
 	internal class Menu
 	{
 		TaskMenu taskMenu = new();
-		DataBaseMenu dataBaseMenu = new DataBaseMenu();
+		DataBaseMenu dataBaseMenu = new ();
+		DataBaseEntityMenu dataBaseEntityMenu = new ();
+		SubMenus subMenus = new ();
 
 		public void Start()
 		{
 			while (true) {
-				taskMenu.PrintMainMenu();
+				subMenus.PrintMainMenu();
 				if (uint.TryParse(Console.ReadLine(), out var num))
 				{
 					switch (num)
@@ -33,6 +35,9 @@ namespace Hw_2.Menu
 							dataBaseMenu.DataBaseComandMenu();
 							break;
 						case 5:
+							dataBaseEntityMenu.DataBaseComandMenu();
+							break;
+						case 6:
 							Console.ForegroundColor = ConsoleColor.Yellow;
 							Console.WriteLine("Вы вышли!");
 							Environment.Exit(0);

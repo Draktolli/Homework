@@ -11,13 +11,13 @@ namespace Hw_2.DB
 {
 	internal class DirectorProvider
 	{
-		private const string ConnectionString = @"Server=localhost\SQLEXPRESS;Database=SchoolDB;Trusted_Connection=True;";
+		private const string ConnectionString = @"Server=localhost\SQLEXPRESS;Database=ScholDB;Trusted_Connection=True;";
 		private SqlConnection connection = new SqlConnection(ConnectionString);
 
 		public void Create(string name, string surname)
 		{
 			connection.Open();
-			string query = $"INSERT INTO dbo.directors(id, name, surname) VALUES (NEWID(), '{name}' ,'{surname}')";
+			string query = $"INSERT INTO dbo.Director(id, name, surname) VALUES (NEWID(), '{name}' ,'{surname}')";
 			SqlCommand command = new SqlCommand(query, connection);
 			command.ExecuteNonQuery();
 			command.Dispose();
@@ -27,7 +27,7 @@ namespace Hw_2.DB
 		public void Read()
 		{
 			connection.Open();
-			string querry = "SELECT * FROM dbo.directors";
+			string querry = "SELECT * FROM dbo.Director";
 			SqlCommand command = new SqlCommand(querry, connection);
 			SqlDataReader reader = command.ExecuteReader();
 			while (reader.Read())
