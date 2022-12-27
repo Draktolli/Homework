@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
-using Hw_2.Entities;
+﻿using Hw_2.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Hw_2.DB
