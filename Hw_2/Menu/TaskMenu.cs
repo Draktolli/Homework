@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Hw_2.Commands;
-using Microsoft.VisualBasic;
+﻿using Hw_2.Commands;
 
 namespace Hw_2.Menu
 {
@@ -13,22 +7,7 @@ namespace Hw_2.Menu
 		FubonachiNumber fubonachiNumber = new FubonachiNumber();
 		WriteFileStrings writeFileStrings = new WriteFileStrings();
 		WriteSiteCode writeSiteCode = new WriteSiteCode();
-		public void PrintMainMenu()
-		{
-			Console.ForegroundColor = ConsoleColor.Yellow;
-			Console.WriteLine("1 - Чтение");
-			Console.WriteLine("2 - Запись");
-			Console.WriteLine("3 - Вывод числа фибоначи");
-			Console.WriteLine("4 - Выход");
-			Console.ForegroundColor = ConsoleColor.White;
-		}
-		public void PrintExtraMenu()
-		{
-			Console.ForegroundColor = ConsoleColor.Yellow;
-			Console.WriteLine("1 - Выполнить задачу снова");
-			Console.WriteLine("2 - Вернуться в главное меню");
-			Console.ForegroundColor = ConsoleColor.White;
-		}
+		SubMenus subMenus = new SubMenus();
 		public void FibonachiNumberMenu()
 		{
 			Console.ForegroundColor = ConsoleColor.Yellow;
@@ -39,7 +18,7 @@ namespace Hw_2.Menu
 				{
 					Console.ForegroundColor = ConsoleColor.White;
 					Console.WriteLine(fubonachiNumber.Fibonachi(stringNumber));
-					PrintExtraMenu();
+					subMenus.PrintExtraMenu();
 					break;
 				}
 				else
@@ -52,7 +31,6 @@ namespace Hw_2.Menu
 			}
 			if(int.TryParse(Console.ReadLine(), out var number)){
 				{
-					//int.TryParse(Console.ReadLine(), out var number);
 					switch (number)
 					{
 						case 1:
@@ -63,7 +41,7 @@ namespace Hw_2.Menu
 						default:
 							Console.ForegroundColor = ConsoleColor.Red;
 							Console.WriteLine("Введеное значение должно быть либо 1 либо 2");
-							PrintExtraMenu();
+							subMenus.PrintExtraMenu();
 							break;
 					}
 				}
@@ -86,7 +64,7 @@ namespace Hw_2.Menu
 					{
 						Console.WriteLine(s);
 					}
-					PrintExtraMenu();
+					subMenus.PrintExtraMenu();
 					break;
 				}
 				else
@@ -108,7 +86,7 @@ namespace Hw_2.Menu
 					default:
 						Console.ForegroundColor = ConsoleColor.Red;
 						Console.WriteLine("Введеное значение должно быть либо 1 либо 2");
-						PrintExtraMenu();
+						subMenus.PrintExtraMenu();
 						break;
 				}
 			}
@@ -124,7 +102,7 @@ namespace Hw_2.Menu
 				{
 					Console.ForegroundColor = ConsoleColor.White;
 					writeSiteCode.GetSiteCode(url);
-					PrintExtraMenu();
+					subMenus.PrintExtraMenu();
 					break;
 				}
 				else
@@ -145,7 +123,7 @@ namespace Hw_2.Menu
 					default:
 						Console.ForegroundColor = ConsoleColor.Red;
 						Console.WriteLine("Введеное значение должно быть либо 1 либо 2");
-						PrintExtraMenu();
+						subMenus.PrintExtraMenu();
 						break;
 				}
 			}
